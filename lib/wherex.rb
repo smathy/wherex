@@ -1,3 +1,7 @@
+require 'arel'
+require 'active_record'
+require 'active_support/core_ext'
+
 require 'wherex/visitor'
 require 'wherex/connection'
 module Wherex

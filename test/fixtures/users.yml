@@ -1,0 +1,27 @@
+---
+one:
+  zipcode: 92345
+
+two:
+  zipcode: 93456
+
+three:
+  zipcode: 94567
+
+four:
+  zipcode: 95678
+
+five:
+  zipcode: 95abc
+
+six:
+  zipcode: 9512
+
+seven:
+  zipcode: 96789
+
+eight:
+  zipcode: 194123
+
+nine:
+  zipcode: 12345

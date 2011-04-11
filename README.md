@@ -79,6 +79,27 @@ too).
 Wherex will pick this module up, and add it into the right place.  Just see
 `lib/wherex/adapters.rb` for more examples.
 
+## Testing
+
+There are test suites for all three database engines that ship with Rails, the
+default is SQLite and requires no preconfiguration.  So you can just clone the
+repo and run `rake` and it will run the tests against SQLite
+
+If you want to run the tests against MySQL or PostgreSQL then you will first
+need to create a `wherex_test` database in your local machine.  Then you will
+need to provide the `RAILS_DB` environment variable to rake, eg:
+
+    RAILS_DB=mysql rake
+
+…or…
+
+    RAILS_DB=postgres rake
+
+These will use a default user of `root` for MySQL and `postgres` for PostgreSQL.
+If you want to use different usernames or passwords then take a look in the
+`config/database.yml` file and either provide the appropriate environment
+variables, or edit the file itself.
+
 ## Copyright
 
 Copyright © 2011 Jason King. See LICENSE.txt for further details.

@@ -7,9 +7,10 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Jason King"]
   s.email       = ["jk@handle.it"]
-  s.homepage    = ""
-  s.summary     = %q{Adds regexp to Arel finders}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "http://github.com/smathy/wherex"
+  s.license     = "MIT"
+  s.summary     = %q{Regexp for ActiveRecord finders}
+  s.description = %q{This gem allows you to pass a Regexp as the value for any finder in ActiveRecord - Rails3 only}
 
   s.rubyforge_project = "wherex"
 

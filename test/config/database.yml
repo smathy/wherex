@@ -1,0 +1,22 @@
+test:
+  postgres:
+    adapter: postgresql
+    encoding: unicode
+    database: wherex_test
+    pool: 5
+    username: <%= ENV['POSTGRESQL_USERNAME'] || 'postgres' %>
+    password: <%= ENV['POSTGRESQL_PASSWORD'] || '' %>
+  mysql:
+    adapter: mysql2
+    encoding: utf8
+    reconnect: false
+    database: wherex_test
+    pool: 5
+    username: <%= ENV['MYSQL_USERNAME'] || 'root' %>
+    password: <%= ENV['MYSQL_PASSWORD'] || '' %>
+    socket: <%= ENV['MYSQL_SOCKET'] || '/tmp/mysql.sock' %>
+  sqlite:
+    adapter: sqlite3
+    database: test/db/test.sqlite3
+    pool: 5
+    timeout: 5000

@@ -18,10 +18,9 @@ module Wherex
       my_adapter_name = adapter.to_s.demodulize
 
       begin
-        my_adapter = my_adapter_name.constantize
+        my_adapter = "Wherex::#{my_adapter_name}".constantize
         adapter.send :include, my_adapter
       rescue NameError => e
-        Rails.logger.debug "From wherex, if this is for an adapter then you can ignore it: " + e.message
       end
 
       if defined? ::ActiveRecord::ConnectionAdapters::SQLiteAdapter
