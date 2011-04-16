@@ -1,4 +1,4 @@
-# wherex
+# wherex [![Build Status](http://travis-ci.org/smathy/wherex.png)](http://travis-ci.org/smathy/wherex)
 
 Regexp support to ActiveRecord finders.
 
