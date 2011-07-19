@@ -8,7 +8,7 @@ case ENV["RAILS_DB"]
 when "postgres"
   gem 'pg'
 when "mysql"
-  gem 'mysql2'
+  gem 'mysql2', '~>0.2.11'
 else
   gem 'sqlite3'
 end
@@ -24,5 +24,6 @@ end
 group :test do
   gem 'redgreen'
   gem 'turn'
+  gem 'rake', '~>0.8.3'
 end
 

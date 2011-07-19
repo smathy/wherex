@@ -17,3 +17,5 @@ pkg
 # ignore Gemfile.lock because it is rewritten by the tests
 Gemfile.lock
 
+# textmate temp files
+._*
