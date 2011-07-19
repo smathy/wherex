@@ -23,7 +23,7 @@ module Wherex
       rescue NameError => e
       end
 
-      if defined? ::ActiveRecord::ConnectionAdapters::SQLiteAdapter
+      if ::ActiveRecord::Base.connection.raw_connection.respond_to? :create_function
         ::ActiveRecord::Base.connection.raw_connection.create_function( "regexp", 2 ) do |context, pattern, string|
           if string.present?
             context.result = 1 if string.match pattern
