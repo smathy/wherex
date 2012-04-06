@@ -16,6 +16,7 @@ end
 group :test do
   gem 'redgreen'
   gem 'turn'
+  gem "rcov", ">= 0"
   gem 'rake', '>= 0.8.3'
 end
 
