@@ -11,7 +11,7 @@ module Wherex
     def visit_Arel_Nodes_Equality_with_wherex o
       right = o.right
       if right.present? and right.is_a? Regexp
-        @connection.regexp visit(o.left), visit(right)
+        ::ActiveRecord::Base.connection.regexp visit(o.left), visit(right)
       else
         visit_Arel_Nodes_Equality_without_wherex o
       end
@@ -20,13 +20,13 @@ module Wherex
     def visit_Arel_Nodes_NotEqual_with_wherex o
       right = o.right
       if right.present? and right.is_a? Regexp
-        @connection.regexp_not visit(o.left), visit(right)
+        ::ActiveRecord::Base.connection.regexp_not visit(o.left), visit(right)
       else
         visit_Arel_Nodes_NotEqual_without_wherex o
       end
     end
 
-    def visit_Regexp o; @connection.regexp_quote(o.source) end
+    def visit_Regexp o; ::ActiveRecord::Base.connection.regexp_quote(o.source) end
 
   end
 end

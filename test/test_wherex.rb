@@ -3,7 +3,7 @@ require 'helper'
 class TestWherex < Test::Unit::TestCase
   def test_user_example
     assert u = User.where( :zipcode => /^9[345][0-9]{3}$/ )
-    assert_equal 3, u.count 
+    assert_equal 3, u.count
     [:two, :three, :four ].each do |id|
       assert u.include?( users(id) )
     end
@@ -21,7 +21,7 @@ class TestWherex < Test::Unit::TestCase
   def test_student_example
     assert s = Student.all( :conditions => { :name => /[^a-zA-Z ]/ } )
     assert_equal 3, s.count
-    [ :two, :three, :four ].each do |id| 
+    [ :two, :three, :four ].each do |id|
       assert s.include?( students(id) )
     end
   end

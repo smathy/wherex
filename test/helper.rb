@@ -30,13 +30,13 @@ ActiveRecord::Base.silence do
   load File.join(FIXTURES_PATH, 'schema.rb')
 end
 
-Fixtures.create_fixtures(FIXTURES_PATH, ActiveRecord::Base.connection.tables)
+ActiveRecord::Fixtures.create_fixtures(FIXTURES_PATH, ActiveRecord::Base.connection.tables)
 
 class Test::Unit::TestCase
   def method_missing method, *args
     candidate = method.to_s.classify
     begin
-      candidate.constantize.find( Fixtures.identify args[0] )
+      candidate.constantize.find( ActiveRecord::Fixtures.identify args[0] )
     rescue NameError
       raise NameError.new "undefined local variable or method `#{method}`"
     end

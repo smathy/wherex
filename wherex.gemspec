@@ -21,4 +21,19 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'arel', '>= 2.0'
   s.add_dependency 'activerecord', '>= 3.0'
+
+  case ENV["RAILS_DB"]
+  when "postgres"
+    s.add_development_dependency 'pg'
+  when "mysql"
+    s.add_development_dependency 'mysql2'
+  else
+    s.add_development_dependency 'sqlite3'
+  end
+
+  s.add_development_dependency 'redgreen'
+  s.add_development_dependency 'turn'
+  s.add_development_dependency "rcov", ">= 0"
+  s.add_development_dependency 'rake', '>= 0.8.3'
+
 end
