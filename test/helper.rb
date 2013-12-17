@@ -25,18 +25,16 @@ dep.autoload_paths.unshift File.join( ROOT_PATH, 'app/models' )
 
 dep.autoload_paths.unshift FIXTURES_PATH
 
-ActiveRecord::Base.silence do
-  ActiveRecord::Migration.verbose = false
-  load File.join(FIXTURES_PATH, 'schema.rb')
-end
+ActiveRecord::Migration.verbose = false
+load File.join(FIXTURES_PATH, 'schema.rb')
 
-ActiveRecord::Fixtures.create_fixtures(FIXTURES_PATH, ActiveRecord::Base.connection.tables)
+ActiveRecord::FixtureSet.create_fixtures(FIXTURES_PATH, ActiveRecord::Base.connection.tables)
 
 class Test::Unit::TestCase
   def method_missing method, *args
     candidate = method.to_s.classify
     begin
-      candidate.constantize.find( ActiveRecord::Fixtures.identify args[0] )
+      candidate.constantize.find( ActiveRecord::FixtureSet.identify args[0] )
     rescue NameError
       raise NameError.new "undefined local variable or method `#{method}`"
     end

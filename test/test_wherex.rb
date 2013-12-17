@@ -13,13 +13,13 @@ class TestWherex < Test::Unit::TestCase
     assert p = Product.find_by_code( /^[NRW][^-]+-[456]/ )
     assert_equal products(:one), p
 
-    assert p = Product.find_all_by_code( /^[NRW][^-]+-[456]/ )
+    assert p = Product.where( code: /^[NRW][^-]+-[456]/ ).load
     assert_equal 1, p.count
     assert_equal products(:one), p.first
   end
 
   def test_student_example
-    assert s = Student.all( :conditions => { :name => /[^a-zA-Z ]/ } )
+    assert s = Student.where( :name => /[^a-zA-Z ]/ ).load
     assert_equal 3, s.count
     [ :two, :three, :four ].each do |id|
       assert s.include?( students(id) )

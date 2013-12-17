@@ -21,11 +21,17 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+require 'simplecov'
+task :test_coverage do
+   ENV['COVERAGE'] = 'true'
+   Rake::Task["test"].execute
+end
+
+if ENV["COVERAGE"]
+  SimpleCov.start do
+    add_filter '/lib/'
+    add_filter '/test/'
+  end
 end
 
 task :default => :test

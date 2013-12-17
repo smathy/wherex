@@ -27,12 +27,12 @@ Gem::Specification.new do |s|
   when "mysql"
     s.add_development_dependency 'mysql2'
   else
-    s.add_development_dependency 'sqlite3'
+    s.add_development_dependency 'sqlite3', ">= 1.3.7"
   end
 
   s.add_development_dependency 'redgreen'
   s.add_development_dependency 'turn'
-  s.add_development_dependency "rcov", ">= 0"
-  s.add_development_dependency 'rake', '>= 0.8.3'
+  s.add_development_dependency "simplecov", ">= 0.8.0"
+  s.add_development_dependency 'rake', '>= 1.0'
 
 end
