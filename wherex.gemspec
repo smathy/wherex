@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_dependency 'arel', '>= 2.0'
-  s.add_dependency 'activerecord', '>= 3.0'
+  s.add_dependency 'arel', '~> 2.0'
+  s.add_dependency 'activerecord', '~> 3.0'
 
   case ENV["RAILS_DB"]
   when "postgres"
