@@ -65,18 +65,20 @@ RE one actually).
 
 Here's how I'd add in Oracle support:
 
-    # config/initializers/wherex.rb
-    module Wherex
-      module OracleEnhancedAdapter
-        def regexp left, right
-          "REGEXP_LIKE( #{left}, #{right} )"
-        end
-
-        def regexp_not left, right
-          "NOT #{regexp left, right}"
-        end
-      end
+```ruby
+# config/initializers/wherex.rb
+module Wherex
+  module OracleEnhancedAdapter
+    def regexp left, right
+      "REGEXP_LIKE( #{left}, #{right} )"
     end
+
+    def regexp_not left, right
+      "NOT #{regexp left, right}"
+    end
+  end
+end
+```
 
 That's it (and the 'NOT' is only necessary if you use meta_where or something
 that enables negative Arel statements to be generated).  You just have to make
@@ -93,11 +95,15 @@ With the latest 1.1 I have added [Appraisal](//github.com/thoughtbot/appraisal)
 for testing multiple versions of ActiveRecord. Check that out for how it works, but
 basically you can run tests for all supported AR versions with:
 
-    appraisal rake
+```bash
+appraisal rake
+```
 
 or you can pick one of the names from the `Appraisals` file and run just one, eg:
 
-    appraisal ar-4.0 rake
+```bash
+appraisal ar-4.0 rake
+```
 
 ### Databases
 
@@ -110,19 +116,27 @@ need to create a `wherex_test` database in your local machine for the given DB.
 Then you will need to `bundle install` for the given DB by using the `DB`
 environment variable, eg:
 
-    DB=mysql bundle
+```bash
+DB=mysql bundle
+```
 
 ...or...
 
-    DB=postgres bundle
+```bash
+DB=postgres bundle
+```
 
 You do the same thing when you're running the tests, eg:
 
-    DB=mysql rake
+```bash
+DB=mysql rake
+```
 
 ...or...
 
-    DB=postgres rake
+```bash
+DB=postgres rake
+```
 
 These will use a default user of `root` for MySQL and `postgres` for PostgreSQL.
 If you want to use different usernames or passwords then take a look in the
@@ -131,7 +145,9 @@ variables, or edit the file itself.
 
 You can also run an appraisal, or all appraisals through the same thing:
 
-    DB=mysql appraisal rake
+```bash
+DB=mysql appraisal rake
+```
 
 ## Copyright
 
