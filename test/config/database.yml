@@ -17,6 +17,6 @@ test:
     socket: <%= ENV['MYSQL_SOCKET'] || '/tmp/mysql.sock' %>
   sqlite:
     adapter: sqlite3
-    database: test/db/test.sqlite3
+    database: ':memory:'
     pool: 5
     timeout: 5000

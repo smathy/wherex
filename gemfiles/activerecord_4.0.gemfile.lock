@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     wherex (1.0.8)
       activerecord (>= 3.0)
@@ -7,36 +7,35 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (4.1.8)
-      activesupport (= 4.1.8)
-      builder (~> 3.1)
-    activerecord (4.1.8)
-      activemodel (= 4.1.8)
-      activesupport (= 4.1.8)
-      arel (~> 5.0.0)
-    activesupport (4.1.8)
+    activemodel (4.0.12)
+      activesupport (= 4.0.12)
+      builder (~> 3.1.0)
+    activerecord (4.0.12)
+      activemodel (= 4.0.12)
+      activerecord-deprecated_finders (~> 1.0.2)
+      activesupport (= 4.0.12)
+      arel (~> 4.0.0)
+    activerecord-deprecated_finders (1.0.3)
+    activesupport (4.0.12)
       i18n (~> 0.6, >= 0.6.9)
-      json (~> 1.7, >= 1.7.7)
-      minitest (~> 5.1)
+      minitest (~> 4.2)
+      multi_json (~> 1.3)
       thread_safe (~> 0.1)
-      tzinfo (~> 1.1)
+      tzinfo (~> 0.3.37)
     ansi (1.4.3)
     appraisal (1.0.2)
       bundler
       rake
       thor (>= 0.14.0)
-    arel (5.0.1.20140414130214)
-    builder (3.2.2)
+    arel (4.0.2)
+    builder (3.1.4)
     docile (1.1.5)
     i18n (0.6.11)
     json (1.8.1)
-    minitap (0.5.3)
-      minitest (~> 5.0)
-      minitest-reporter-api (>= 0.0.2)
+    minitap (0.4.1)
+      minitest
       tapout (>= 0.3.0)
-    minitest (5.4.3)
-    minitest-reporter-api (0.0.5)
-      minitest (~> 5.0)
+    minitest (4.7.5)
     multi_json (1.10.1)
     mysql2 (0.3.13)
     rake (10.4.0)
@@ -50,13 +49,13 @@ GEM
       json
     thor (0.19.1)
     thread_safe (0.3.4)
-    tzinfo (1.2.2)
-      thread_safe (~> 0.1)
+    tzinfo (0.3.42)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord (~> 4.0.0)
   appraisal
   minitap
   mysql2

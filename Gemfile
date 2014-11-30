@@ -1,4 +1,7 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in activerecord_enum.gemspec
 gemspec
+
+gem 'appraisal'
+gem 'tapout'
+gem 'minitap'

@@ -8,25 +8,28 @@ module Wherex
       end
     end
 
-    def visit_Arel_Nodes_Equality_with_wherex o, a = nil
+    def visit_Arel_Nodes_Equality_with_wherex *args
+      o = args.first
       right = o.right
       if right.present? and right.is_a? Regexp
         ::ActiveRecord::Base.connection.regexp visit(o.left), visit(right)
       else
-        visit_Arel_Nodes_Equality_without_wherex o, a
+        visit_Arel_Nodes_Equality_without_wherex *args
       end
     end
 
-    def visit_Arel_Nodes_NotEqual_with_wherex o, a = nil
+    def visit_Arel_Nodes_NotEqual_with_wherex *args
+      o = args.first
       right = o.right
       if right.present? and right.is_a? Regexp
         ::ActiveRecord::Base.connection.regexp_not visit(o.left), visit(right)
       else
-        visit_Arel_Nodes_NotEqual_without_wherex o, a
+        visit_Arel_Nodes_NotEqual_without_wherex *args
       end
     end
 
-    def visit_Regexp(o, a = nil)
+    def visit_Regexp *args
+      o = args.first
       ::ActiveRecord::Base.connection.regexp_quote(o.source)
     end
 
