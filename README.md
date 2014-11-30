@@ -14,18 +14,22 @@ you can just use this in your `Gemfile`:
 gem 'wherex', '~> 1.0'
 ```
 
-## What the?
+Only works with Rails >= 3.1
 
-    # find users in 93, 94 and 95 (5 digit) zipcodes (new style finder)
-    User.where :zipcode => /^9[345][0-9]{3}$/
+## Examples
 
-    # find students with invalid characters in their names (old style finder)
-    Student.all :conditions => { :name => /[^a-zA-Z ]/ }
+```ruby
+# find users in 93, 94 and 95 (5 digit) zipcodes (new style finder)
+User.where :zipcode => /^9[345][0-9]{3}$/
 
-    # find products with a complex code structure (dynamic finders)
-    Product.find_by_code /^[NRW][^-]+-[456]/
+# find students with invalid characters in their names (old style finder)
+Student.all :conditions => { :name => /[^a-zA-Z ]/ }
 
-## Limitations?
+# find products with a complex code structure (dynamic finders)
+Product.find_by_code /^[NRW][^-]+-[456]/
+```
+
+## Be Aware
 
 ### POSIX Only (mostly)
 
@@ -85,17 +89,38 @@ Wherex will pick this module up, and add it into the right place.  Just see
 
 ## Testing
 
+With the latest 1.1 I have added [Appraisal](//github.com/thoughtbot/appraisal)
+for testing multiple versions of ActiveRecord. Check that out for how it works, but
+basically you can run tests for all supported AR versions with:
+
+    appraisal rake
+
+or you can pick one of the names from the `Appraisals` file and run just one, eg:
+
+    appraisal ar-4.0 rake
+
+### Databases
+
 There are test suites for all three database engines that ship with Rails, the
 default is SQLite and requires no preconfiguration.  So you can just clone the
 repo and run `rake` and it will run the tests against SQLite
 
 If you want to run the tests against MySQL or PostgreSQL then you will first
-need to create a `wherex_test` database in your local machine.  Then you will
-need to provide the `DB` environment variable to rake, eg:
+need to create a `wherex_test` database in your local machine for the given DB.
+Then you will need to `bundle install` for the given DB by using the `DB`
+environment variable, eg:
+
+    DB=mysql bundle
+
+...or...
+
+    DB=postgres bundle
+
+You do the same thing when you're running the tests, eg:
 
     DB=mysql rake
 
-…or…
+...or...
 
     DB=postgres rake
 
@@ -104,7 +129,10 @@ If you want to use different usernames or passwords then take a look in the
 `config/database.yml` file and either provide the appropriate environment
 variables, or edit the file itself.
 
+You can also run an appraisal, or all appraisals through the same thing:
+
+    DB=mysql appraisal rake
+
 ## Copyright
 
-Copyright © 2011 Jason King. See LICENSE.txt for further details.
-
+Copyright © 2014 Jason King. See LICENSE.txt for further details.
