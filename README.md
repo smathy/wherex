@@ -1,14 +1,18 @@
-# wherex [![Build Status](https://api.travis-ci.org/smathy/wherex.png)](https://travis-ci.org/smathy/wherex)
+# wherex
+
+[![Build Status](https://travis-ci.org/smathy/wherex.svg?branch=master)](https://travis-ci.org/smathy/wherex) [![Code Climate](https://codeclimate.com/github/smathy/wherex/badges/gpa.svg)](https://codeclimate.com/github/smathy/wherex) [![Test Coverage](https://codeclimate.com/github/smathy/wherex/badges/coverage.svg)](https://codeclimate.com/github/smathy/wherex)
 
 Regexp support to ActiveRecord finders.
 
-## Howto?
+## Installation
 
-In your Gemfile
+Wherex is [Semantically Versioned](http://semver.org/), meaning that we will
+always indicate a backwardly incompatible change with a MAJOR version bump, so
+you can just use this in your `Gemfile`:
 
-    gem 'wherex'
-
-Then run `bundle install`
+```ruby
+gem 'wherex', '~> 1.0'
+```
 
 ## What the?
 
