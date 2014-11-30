@@ -2,8 +2,8 @@ cache: bundler
 language: ruby
 
 before_script:
-  - mysql -e 'create database wherex_test;'
-  - psql -c 'create database wherex_test;' -U postgres
+  - if [[ "$DB" == "mysql" ]]; then mysql -e 'create database wherex_test;'; fi
+  - if [[ "$DB" == "postgres" ]]; then psql -c 'create database wherex_test;' -U postgres; fi
 
 rvm:
   - 2.0.0
@@ -11,22 +11,22 @@ rvm:
   - ruby-head
 
 gemfile:
-  - gemfiles/activerecord_3.1.gemfile
-  - gemfiles/activerecord_3.2.gemfile
-  - gemfiles/activerecord_4.0.gemfile
-  - gemfiles/activerecord_4.1.gemfile
-  - gemfiles/activerecord_4.2.gemfile
+  - gemfiles/ar_3.1.gemfile
+  - gemfiles/ar_3.2.gemfile
+  - gemfiles/ar_4.0.gemfile
+  - gemfiles/ar_4.1.gemfile
+  - gemfiles/ar_4.2.gemfile
 
 env:
-  - RAILS_DB=sqlite
-  - RAILS_DB=mysql
-  - RAILS_DB=postgres
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgres
 
 matrix:
   fast_finish: true
   allow_failures:
     - rvm: ruby-head
-    - gemfile: gemfiles/activerecord_4.2.gemfile
+    - gemfile: gemfiles/ar_4.2.gemfile
 
 addons:
   code_climate:

@@ -18,9 +18,14 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activerecord', '>= 3.1'
 
-  s.add_development_dependency 'pg'
-  s.add_development_dependency 'mysql2'
-  s.add_development_dependency 'sqlite3', ">= 1.3.7"
+  case ENV["DB"]
+  when "postgres", "postgresql", "pg"
+    s.add_development_dependency 'pg'
+  when "mysql", "mysql2"
+    s.add_development_dependency 'mysql2'
+  else
+    s.add_development_dependency 'sqlite3', ">= 1.3.7"
+  end
 
   s.add_development_dependency 'rake', '>= 1.0'
 
