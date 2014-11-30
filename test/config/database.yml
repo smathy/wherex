@@ -18,7 +18,6 @@ test:
     pool: 5
     username: <%= ENV['MYSQL_USERNAME'] || 'root' %>
     password: <%= ENV['MYSQL_PASSWORD'] || '' %>
-    socket: <%= ENV['MYSQL_SOCKET'] || '/tmp/mysql.sock' %>
   mysql2:
     <<: *mysql
   sqlite: &sqlite

@@ -1,4 +1,4 @@
-ENV['RAILS_DB'] = ( ENV['RAILS_DB'] || 'sqlite' ).downcase
+ENV['DB'] = ( ENV['DB'] || 'sqlite' ).downcase
 
 require 'minitest/autorun'
 require 'minitap'
@@ -14,7 +14,7 @@ require 'active_record/fixtures'
 
 ROOT_PATH = File.expand_path( File.join( File.dirname(__FILE__) ))
 
-config = YAML::load(ERB.new(IO.read(File.join( ROOT_PATH, 'config', 'database.yml'))).result)['test'][ENV['RAILS_DB']]
+config = YAML::load(ERB.new(IO.read(File.join( ROOT_PATH, 'config', 'database.yml'))).result)['test'][ENV['DB']]
 
 ActiveRecord::Base.establish_connection config
 

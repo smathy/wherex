@@ -87,13 +87,13 @@ repo and run `rake` and it will run the tests against SQLite
 
 If you want to run the tests against MySQL or PostgreSQL then you will first
 need to create a `wherex_test` database in your local machine.  Then you will
-need to provide the `RAILS_DB` environment variable to rake, eg:
+need to provide the `DB` environment variable to rake, eg:
 
-    RAILS_DB=mysql rake
+    DB=mysql rake
 
 …or…
 
-    RAILS_DB=postgres rake
+    DB=postgres rake
 
 These will use a default user of `root` for MySQL and `postgres` for PostgreSQL.
 If you want to use different usernames or passwords then take a look in the
