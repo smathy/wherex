@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep /^test/
   s.require_paths = ["lib"]
 
-  s.add_dependency 'activerecord', '>= 3.0'
+  s.add_dependency 'activerecord', '>= 3.1'
 
   case ENV["RAILS_DB"]
   when "postgres"
