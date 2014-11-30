@@ -1,3 +1,6 @@
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 ENV['DB'] = ( ENV['DB'] || 'sqlite' ).downcase
 
 require 'minitest/autorun'

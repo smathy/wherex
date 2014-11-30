@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'mysql2'
   s.add_development_dependency 'sqlite3', ">= 1.3.7"
 
-  s.add_development_dependency "simplecov", ">= 0.8.0"
   s.add_development_dependency 'rake', '>= 1.0'
 
 end

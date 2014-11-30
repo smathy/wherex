@@ -2,6 +2,9 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'appraisal'
-gem 'tapout'
-gem 'minitap'
+group :development, :test do
+  gem 'appraisal'
+  gem 'tapout'
+  gem 'minitap'
+  gem "codeclimate-test-reporter", require: nil
+end
