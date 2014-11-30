@@ -17,5 +17,7 @@ pkg
 # ignore Gemfile.lock because it is rewritten by the tests
 Gemfile.lock
 
+/gemfiles/*.lock
+
 test/db/test.sqlite3
 .*.sw[ap]
